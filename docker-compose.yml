@@ -1,0 +1,13 @@
+version: '3'
+services:
+  tcp_server:
+    build: ./tcp_server
+    container_name: tcp_server
+    ports:
+      - "12345:12345"
+
+  tcp_client:
+    build: ./tcp_client
+    container_name: tcp_client
+    depends_on:
+      - tcp_server
