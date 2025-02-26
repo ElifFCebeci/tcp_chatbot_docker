@@ -1,13 +1,13 @@
-version: '3'
+
 services:
   tcp_server:
-    build: ./tcp_server
-    container_name: tcp_server
+    build: ./tcp_server  # ./tcp_server dizinindeki Dockerfile'ı kullanarak tcp_server imajını oluştur
+    container_name: tcp_server  # Konteyner adını tcp_server olarak belirle
     ports:
-      - "12345:12345"
+      - "12345:12345"  # Host makinesindeki 12345 portunu konteynerdeki 12345 portuna yönlendir
 
   tcp_client:
-    build: ./tcp_client
-    container_name: tcp_client
+    build: ./tcp_client  # ./tcp_client dizinindeki Dockerfile'ı kullanarak tcp_client imajını oluştur
+    container_name: tcp_client  # Konteyner adını tcp_client olarak belirle
     depends_on:
-      - tcp_server
+      - tcp_server  # tcp_client konteyneri başlatılmadan önce tcp_server konteynerinin başlatılmasını sağlar
