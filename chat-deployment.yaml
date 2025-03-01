@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chat-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: chat_server
+  template:
+    metadata:
+      labels:
+        app: chat_server
+    spec:
+      containers:
+      - name: chat-server
+        image: myrepo/chat-server:latest
+        ports:
+        - containerPort: 5000
